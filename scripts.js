@@ -39,6 +39,7 @@ const localGovernments = {
 };
 
 
+
 // Admin credentials
 const adminUsername = "admin";
 const adminPassword = "securePassword123";
@@ -69,7 +70,7 @@ function populateProductOptions() {
     if (product === "rice") {
         options = ["Local Rice", "Foreign Rice"];
     } else if (product === "cement") {
-        options = ["Dangote 3X", "Dangote Falcon", "Dangote Block Master","BUA","MANGAL"];
+        options = ["Dangote 3X", "Dangote Falcon", "Dangote Block Master"];
     } else if (product === "spaghetti") {
         options = ["Local Spaghetti", "Foreign Spaghetti"];
     } else if (product === "macaroni") {
