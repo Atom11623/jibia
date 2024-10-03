@@ -146,12 +146,9 @@
             <select id="product" name="product" required onchange="populateProductOptions()">
                 <option value="">Select Product</option>
                 <option value="rice">Rice</option>
-                <option value="pos">POS (Point of Sale)</option>
+                <option value="cement">Cement</option>
+                <option value="spaghetti">Spaghetti</option>
                 <option value="macaroni">Macaroni</option>
-                <option value="dangote">Dangote Cement</option>
-                <option value="bua">BUA Cement</option>
-                <option value="mangal">Mangal Cement</option>
-                <option value="provision">Provision Store Items</option>
             </select>
 
             <label for="product-option">Product Option:</label>
@@ -180,9 +177,9 @@
             <p id="loginError" style="color:red;display:none;">Incorrect username or password</p>
         </form>
         
-        <div id="orders" style="display:none;">
-            <h2>Customer Orders</h2>
-            <table>
+        <div id="adminPanel" style="display:none;">
+            <h3>Customer Orders</h3>
+            <table id="ordersTable">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -191,11 +188,12 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Product</th>
+                        <th>Product Option</th>
                         <th>Quantity</th>
                     </tr>
                 </thead>
-                <tbody id="ordersList">
-                    <!-- Orders will be displayed here -->
+                <tbody>
+                    <!-- Orders will be added here dynamically -->
                 </tbody>
             </table>
         </div>
@@ -203,9 +201,11 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 JIBIA MULTIRESOURCES NIGERIA | All Rights Reserved</p>
+        <p>Contact us: <a href="mailto:jibiamultiresources@gmail.com">jibiamultiresources@gmail.com</a> | Phone: 07067713170</p>
+        <p>&copy; 2024 Jibia Multi Resources Nigeria</p>
     </footer>
 
+    <!-- JavaScript -->
     <script src="scripts.js"></script>
 </body>
 </html>
