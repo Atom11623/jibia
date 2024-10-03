@@ -39,71 +39,88 @@ const localGovernments = {
 };
 
 
-// Admin credentials
-const adminUsername = "admin";
-const adminPassword = "securePassword123";
+// JavaScript for Jibia Multi Resources Nigeria website
 
-// Populate local government based on selected state
+// Sample local governments for demonstration (you can expand this as needed)
+const localGovernments = {
+    Abia: ["Aba North", "Aba South", "Umuahia North", "Umuahia South"],
+    Adamawa: ["Demsa", "Girei", "Mubi North", "Mubi South"],
+    Akwa Ibom: ["Uyo", "Ikot Ekpene", "Eket", "Abak"],
+    // ... Add more local governments for other states
+    Kano: ["Kano Municipal", "Tudun Wada", "Nasarawa", "Dala"],
+    Kogi: ["Bassa", "Dekina", "Igalamela Odolu", "Ofu"],
+    // Continue for all other states...
+};
+
+// Populate local government options based on selected state
 function populateLocalGovernment() {
-    const state = document.getElementById('state').value;
-    const localGovernmentSelect = document.getElementById('local-government');
-    localGovernmentSelect.innerHTML = '<option value="">Select your local government</option>';
-    
-    if (state && localGovernments[state]) {
-        localGovernments[state].forEach(lga => {
+    const stateSelect = document.getElementById('state');
+    const localGovSelect = document.getElementById('local-government');
+    const selectedState = stateSelect.value;
+
+    // Clear previous options
+    localGovSelect.innerHTML = '<option value="">Select your local government</option>';
+
+    if (selectedState in localGovernments) {
+        localGovernments[selectedState].forEach(function(localGov) {
             const option = document.createElement('option');
-            option.value = lga;
-            option.text = lga;
-            localGovernmentSelect.appendChild(option);
+            option.value = localGov;
+            option.textContent = localGov;
+            localGovSelect.appendChild(option);
         });
     }
 }
 
-// Product options logic
+// Populate product options based on selected product
 function populateProductOptions() {
-    const product = document.getElementById('product').value;
+    const productSelect = document.getElementById('product');
     const productOptionSelect = document.getElementById('product-option');
-    productOptionSelect.innerHTML = '<option value="">Select Product Option</option>';
-    
-    let options = [];
-    if (product === "rice") {
-        options = ["Local Rice", "Foreign Rice"];
-    } else if (product === "cement") {
-        options = ["Dangote 3X", "Dangote Falcon", "Dangote Block Master"];
-    } else if (product === "spaghetti") {
-        options = ["Local Spaghetti", "Foreign Spaghetti"];
-    } else if (product === "macaroni") {
-        options = ["Local Macaroni", "Foreign Macaroni"];
-    }
+    const selectedProduct = productSelect.value;
 
-    options.forEach(option => {
-        const opt = document.createElement('option');
-        opt.value = option;
-        opt.text = option;
-        productOptionSelect.appendChild(opt);
-    });
+    // Clear previous options
+    productOptionSelect.innerHTML = '<option value="">Select Product Option</option>';
+
+    // Update product options based on selected product
+    if (selectedProduct === 'cement') {
+        const cementOptions = ["3X", "Falcon", "Blockmaster"];
+        cementOptions.forEach(function(option) {
+            const productOption = document.createElement('option');
+            productOption.value = option.toLowerCase(); // for example, "3x"
+            productOption.textContent = option;
+            productOptionSelect.appendChild(productOption);
+        });
+    } else if (selectedProduct === 'rice') {
+        const riceOptions = ["Local Rice", "Imported Rice"];
+        riceOptions.forEach(function(option) {
+            const productOption = document.createElement('option');
+            productOption.value = option.toLowerCase(); // for example, "local rice"
+            productOption.textContent = option;
+            productOptionSelect.appendChild(productOption);
+        });
+    } else if (selectedProduct === 'spaghetti') {
+        const spaghettiOptions = ["Spaghetti 200g", "Spaghetti 500g"];
+        spaghettiOptions.forEach(function(option) {
+            const productOption = document.createElement('option');
+            productOption.value = option.toLowerCase(); // for example, "spaghetti 200g"
+            productOption.textContent = option;
+            productOptionSelect.appendChild(productOption);
+        });
+    } else if (selectedProduct === 'macaroni') {
+        const macaroniOptions = ["Macaroni 200g", "Macaroni 500g"];
+        macaroniOptions.forEach(function(option) {
+            const productOption = document.createElement('option');
+            productOption.value = option.toLowerCase(); // for example, "macaroni 200g"
+            productOption.textContent = option;
+            productOptionSelect.appendChild(productOption);
+        });
+    }
 }
 
-// Handle admin login
-document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const enteredUsername = document.getElementById('adminUsername').value;
-    const enteredPassword = document.getElementById('adminPassword').value;
-
-    if (enteredUsername === adminUsername && enteredPassword === adminPassword) {
-        document.getElementById('adminPanel').style.display = 'block';
-        document.getElementById('loginError').style.display = 'none';
-    } else {
-        document.getElementById('loginError').style.display = 'block';
-    }
-});
-
 // Handle order form submission
-document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.getElementById('orderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    // Get form data
+    // Gather form data
     const name = document.getElementById('name').value;
     const state = document.getElementById('state').value;
     const localGovernment = document.getElementById('local-government').value;
@@ -113,22 +130,40 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
     const productOption = document.getElementById('product-option').value;
     const quantity = document.getElementById('quantity').value;
 
-    // Add the order to the admin panel
-    const ordersTableBody = document.querySelector('#ordersTable tbody');
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-        <td>${name}</td>
-        <td>${state}</td>
-        <td>${localGovernment}</td>
-        <td>${address}</td>
-        <td>${phone}</td>
-        <td>${product}</td>
-        <td>${productOption}</td>
-        <td>${quantity}</td>
-    `;
-    ordersTableBody.appendChild(newRow);
+    // Create a new row in the orders table
+    const ordersTable = document.getElementById('ordersTable').getElementsByTagName('tbody')[0];
+    const newRow = ordersTable.insertRow();
 
-    // Send an email (this will open the user's email client)
-    const emailBody = `Name: ${name}%0AState: ${state}%0ALGA: ${localGovernment}%0AAddress: ${address}%0APhone: ${phone}%0AProduct: ${product}%0AProduct Option: ${productOption}%0AQuantity: ${quantity}`;
-    window.location.href = `mailto:jibiamultiresources@gmail.com?subject=New Order&body=${emailBody}`;
+    newRow.insertCell(0).textContent = name;
+    newRow.insertCell(1).textContent = state;
+    newRow.insertCell(2).textContent = localGovernment;
+    newRow.insertCell(3).textContent = address;
+    newRow.insertCell(4).textContent = phone;
+    newRow.insertCell(5).textContent = product;
+    newRow.insertCell(6).textContent = productOption;
+    newRow.insertCell(7).textContent = quantity;
+
+    // Clear the form
+    document.getElementById('orderForm').reset();
+    document.getElementById('local-government').innerHTML = '<option value="">Select your local government</option>';
+    document.getElementById('product-option').innerHTML = '<option value="">Select Product Option</option>';
+});
+
+// Handle admin login form submission
+document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('adminUsername').value;
+    const password = document.getElementById('adminPassword').value;
+
+    // Dummy credentials (You can replace this with a proper authentication system)
+    const validUsername = "admin";
+    const validPassword = "password";
+
+    if (username === validUsername && password === validPassword) {
+        document.getElementById('adminPanel').style.display = 'block';
+        document.getElementById('loginError').style.display = 'none';
+    } else {
+        document.getElementById('loginError').style.display = 'block';
+    }
 });
