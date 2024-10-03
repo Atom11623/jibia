@@ -9,8 +9,8 @@
 <body>
     <!-- Header Section -->
     <header>
-        <h1>Welcome to Jibia Multi Resources Nigeria</h1>
-        <p>Dealer of top-quality foodstuffs and authorized distributor of Dangote, BUA, and Mangal cement.</p>
+        <h1>WELCOME TO JIBIA MULTI RESOURCES NIGERIA</h1>
+        <p>Dealer in all kinds of foodstuff and Distributor of Dangote, BUA, and Mangal Cement</p>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About Us</a>
@@ -19,6 +19,68 @@
             <a href="#admin">Admin Login</a>
         </nav>
     </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to Our Website</h2>
+        <p>At Jibia Multi Resources Nigeria, we are committed to providing top-quality products and exceptional service.</p>
+        <p>Explore our products and place your orders easily through our online form.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>ABOUT US</h2>
+        <p>
+            JIBIA MULTIRESOURCES NIGERIA is your reliable partner in supplying top-quality foodstuff and cement. 
+            We are authorized distributors of Dangote, BUA, and Mangal cement. 
+            Our goal is to provide quality materials at competitive prices.
+        </p>
+        <p>Head Office: LIFE Gate Clinics Street, Obajana, Kogi State</p>
+        <p>Email: <a href="mailto:jibiamultiresources@gmail.com">jibiamultiresources@gmail.com</a></p>
+        <p>Phone: 07067713170</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>OUR PRODUCTS</h2>
+        <div class="product-list">
+            <div class="product">
+                <h3>Dangote Cement</h3>
+                <p>Known for its strength and durability, Dangote Cement is a top choice for both large-scale construction and individual projects.</p>
+                <img src="dangote-cement.jpg" alt="Dangote Cement">
+            </div>
+            <div class="product">
+                <h3>BUA Cement</h3>
+                <p>BUA Cement offers high quality and consistency for both commercial and residential construction needs.</p>
+                <img src="bua-cement.jpg" alt="BUA Cement">
+            </div>
+            <div class="product">
+                <h3>Mangal Cement</h3>
+                <p>Mangal Cement is a fast-growing brand, offering reliability and cost-effectiveness for construction.</p>
+                <img src="mangal-cement.jpg" alt="Mangal Cement">
+            </div>
+            <div class="product">
+                <h3>Rice</h3>
+                <p>Our high-quality rice is sourced from the best farms, ensuring you get the best flavor and nutrition.</p>
+                <img src="rice.jpg" alt="Rice">
+            </div>
+            <div class="product">
+                <h3>POS (Point of Sale)</h3>
+                <p>Reliable and efficient POS systems for your business needs, enhancing your sales processes.</p>
+                <img src="pos.jpg" alt="POS">
+            </div>
+            <div class="product">
+                <h3>Macaroni</h3>
+                <p>Delicious macaroni perfect for a variety of dishes, made from high-quality ingredients.</p>
+                <img src="macaroni.jpg" alt="Macaroni">
+            </div>
+            <div class="product">
+                <h3>Provision Store Items</h3>
+                <p>We offer a wide range of provision store items including canned goods, snacks, and beverages.</p>
+                <img src="provision-store.jpg" alt="Provision Store Items">
+            </div>
+        </div>
+    </section>
 
     <!-- Order Section -->
     <section id="order">
@@ -84,9 +146,12 @@
             <select id="product" name="product" required onchange="populateProductOptions()">
                 <option value="">Select Product</option>
                 <option value="rice">Rice</option>
-                <option value="cement">Cement</option>
-                <option value="spaghetti">Spaghetti</option>
+                <option value="pos">POS (Point of Sale)</option>
                 <option value="macaroni">Macaroni</option>
+                <option value="dangote">Dangote Cement</option>
+                <option value="bua">BUA Cement</option>
+                <option value="mangal">Mangal Cement</option>
+                <option value="provision">Provision Store Items</option>
             </select>
 
             <label for="product-option">Product Option:</label>
@@ -115,9 +180,9 @@
             <p id="loginError" style="color:red;display:none;">Incorrect username or password</p>
         </form>
         
-        <div id="adminPanel" style="display:none;">
-            <h3>Customer Orders</h3>
-            <table id="ordersTable">
+        <div id="orders" style="display:none;">
+            <h2>Customer Orders</h2>
+            <table>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -126,12 +191,11 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Product</th>
-                        <th>Product Option</th>
                         <th>Quantity</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Orders will be added here dynamically -->
+                <tbody id="ordersList">
+                    <!-- Orders will be displayed here -->
                 </tbody>
             </table>
         </div>
@@ -139,11 +203,9 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>Contact us: <a href="mailto:jibiamultiresources@gmail.com">jibiamultiresources@gmail.com</a> | Phone: 07067713170</p>
-        <p>&copy; 2024 Jibia Multi Resources Nigeria</p>
+        <p>&copy; 2024 JIBIA MULTIRESOURCES NIGERIA | All Rights Reserved</p>
     </footer>
 
-    <!-- JavaScript -->
     <script src="scripts.js"></script>
 </body>
 </html>
