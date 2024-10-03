@@ -3,14 +3,29 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f4f4f4; /* Updated background color for consistency */
 }
 
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 1em;
+    padding: 20px; /* Increased padding for better spacing */
     text-align: center;
+}
+
+h1 {
+    margin: 0; /* Removed default margin for h1 */
+}
+
+h2 {
+    color: #333; /* Keep this for headings in sections */
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px; /* Added rounded corners for sections */
 }
 
 nav a {
@@ -18,10 +33,6 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-}
-
-h2 {
-    color: #333;
 }
 
 form {
@@ -32,13 +43,16 @@ form {
     padding: 20px;
     background-color: white;
     border: 1px solid #ddd;
+    border-radius: 10px; /* Added rounded corners for the form */
 }
 
 form label {
     margin-bottom: 5px;
 }
 
-form input, form select, form button {
+form input,
+form select,
+form button {
     margin-bottom: 15px;
     padding: 10px;
     font-size: 16px;
@@ -49,15 +63,16 @@ form button {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px; /* Rounded corners for buttons */
 }
 
 form button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Darker green for hover effect */
 }
 
 footer {
     text-align: center;
-    padding: 1em;
+    padding: 10px; /* Adjusted padding for better balance */
     background-color: #333;
     color: white;
     margin-top: 20px;
@@ -73,7 +88,8 @@ footer {
     border-collapse: collapse;
 }
 
-#ordersTable th, #ordersTable td {
+#ordersTable th,
+#ordersTable td {
     border: 1px solid #ddd;
     padding: 8px;
 }
@@ -81,4 +97,31 @@ footer {
 #ordersTable th {
     background-color: #4CAF50;
     color: white;
+}
+
+/* Product Section Styles */
+#about p,
+#products p {
+    line-height: 1.6; /* Improved readability */
+}
+
+#products {
+    background-color: #f9f9f9; /* Slightly lighter background for product section */
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.product {
+    width: 30%; /* Maintain proportion for product display */
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for product images */
 }
