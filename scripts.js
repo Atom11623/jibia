@@ -70,7 +70,7 @@ function populateProductOptions() {
     if (product === "rice") {
         options = ["Local Rice", "Foreign Rice"];
     } else if (product === "cement") {
-        options = ["Dangote 3X", "Dangote Falcon", "Dangote Block Master"];
+        options = ["Dangote 3X", "Dangote Falcon", "Dangote Block Master","BUA","Mangal"];
     } else if (product === "spaghetti") {
         options = ["Local Spaghetti", "Foreign Spaghetti"];
     } else if (product === "macaroni") {
