@@ -82,9 +82,7 @@ const localGovernments = {
 
 
 
-// Admin credentials
-const adminUsername = "admin";
-const adminPassword = "securePassword123";
+
 
 // Populate local government based on selected state
 function populateLocalGovernment() {
