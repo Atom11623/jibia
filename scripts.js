@@ -131,5 +131,5 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
 
     // Send an email (this will open the user's email client)
     const emailBody = `Name: ${name}%0AState: ${state}%0ALGA: ${localGovernment}%0AAddress: ${address}%0APhone: ${phone}%0AProduct: ${product}%0AProduct Option: ${productOption}%0AQuantity: ${quantity}`;
-    window.location.href = `mailto:jibiamultiresources@gmail.com?subject=New Order&body=${emailBody}`;
+    window.location.href = `mailto:jibiamultresourcesobj@gmail.com?subject=New Order&body=${emailBody}`;
 });
