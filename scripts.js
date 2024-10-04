@@ -1,3 +1,45 @@
+// Sample Admin Credentials
+const adminUsername = 'Gama1162';
+const adminPassword = '123456789';
+
+// Function to handle admin login
+function adminLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === adminUsername && password === adminPassword) {
+        alert('Login successful!');
+        document.getElementById('adminPanel').style.display = 'block'; // Show admin panel
+        document.getElementById('loginForm').style.display = 'none'; // Hide login form
+    } else {
+        alert('Incorrect username or password. Please try again.');
+    }
+}
+
+// Sample function to handle order submission
+function submitOrder() {
+    // Logic for submitting an order
+    alert('Order submitted!');
+}
+
+// Sample function to display orders
+function displayOrders() {
+    // Logic to display orders in the orders table
+}
+
+// Sample event listener for the login form
+document.getElementById('loginButton').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent form submission
+    adminLogin(); // Call the login function
+});
+
+// Sample event listener for order submission
+document.getElementById('orderButton').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent form submission
+    submitOrder(); // Call the order submission function
+});
+
+
 const localGovernments = {
     "Abia": ["Aba North", "Aba South", "Ikwuano", "Isiala Ngwa North", "Isiala Ngwa South", "Obingwa", "Ohafia", "Osisioma", "Ugwunagbo", "Ukwa East", "Ukwa West", "Umuahia North", "Umuahia South", "Umu Nneochi"],
     "Adamawa": ["Demsa", "Fufore", "Girei", "Guyuk", "Hong", "Jada", "Lamurde", "Madagali", "Maiha", "Mayo-Belwa", "Michika", "Mubi North", "Mubi South", "Numan", "Shelleng", "Song", "Toungo", "Yola North", "Yola South"],
