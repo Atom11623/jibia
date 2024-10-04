@@ -1,3 +1,45 @@
+// Sample Admin Credentials
+const adminUsername = 'Gama1162';
+const adminPassword = '123456789';
+
+// Function to handle admin login
+function adminLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === adminUsername && password === adminPassword) {
+        alert('Login successful!');
+        document.getElementById('adminPanel').style.display = 'block'; // Show admin panel
+        document.getElementById('loginForm').style.display = 'none'; // Hide login form
+    } else {
+        alert('Incorrect username or password. Please try again.');
+    }
+}
+
+// Sample function to handle order submission
+function submitOrder() {
+    // Logic for submitting an order
+    alert('Order submitted!');
+}
+
+// Sample function to display orders
+function displayOrders() {
+    // Logic to display orders in the orders table
+}
+
+// Sample event listener for the login form
+document.getElementById('loginButton').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent form submission
+    adminLogin(); // Call the login function
+});
+
+// Sample event listener for order submission
+document.getElementById('orderButton').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent form submission
+    submitOrder(); // Call the order submission function
+});
+
+// Sample local government data
 const localGovernments = {
     "Abia": ["Aba North", "Aba South", "Ikwuano", "Isiala Ngwa North", "Isiala Ngwa South", "Obingwa", "Ohafia", "Osisioma", "Ugwunagbo", "Ukwa East", "Ukwa West", "Umuahia North", "Umuahia South", "Umu Nneochi"],
     "Adamawa": ["Demsa", "Fufore", "Girei", "Guyuk", "Hong", "Jada", "Lamurde", "Madagali", "Maiha", "Mayo-Belwa", "Michika", "Mubi North", "Mubi South", "Numan", "Shelleng", "Song", "Toungo", "Yola North", "Yola South"],
@@ -15,121 +57,47 @@ const localGovernments = {
     "Enugu": ["Aninri", "Awgu", "Enugu East", "Enugu North", "Enugu South", "Ezeagu", "Igbo Etiti", "Igbo Eze North", "Igbo Eze South", "Isi Uzo", "Nkanu East", "Nkanu West", "Nsukka", "Oji River", "Udenu", "Udi", "Uzo Uwani"],
     "Gombe": ["Akko", "Balanga", "Billiri", "Dukku", "Funakaye", "Gombe", "Kaltungo", "Kwami", "Nafada", "Shongom", "Yamaltu/Deba"],
     "Imo": ["Aboh Mbaise", "Ahiazu Mbaise", "Ehime Mbano", "Ezinihitte", "Ideato North", "Ideato South", "Ihitte/Uboma", "Ikeduru", "Isiala Mbano", "Isu", "Mbaitoli", "Ngor Okpala", "Njaba", "Nkwerre", "Nwangele", "Obowo", "Oguta", "Ohaji/Egbema", "Okigwe", "Onuimo", "Orlu", "Orsu", "Oru East", "Oru West", "Owerri Municipal", "Owerri North", "Owerri West"],
-    "Jigawa": ["Auyo", "Babura", "Biriniwa", "Birnin Kudu", "Buji", "Dutse", "Gagarawa", "Garki", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadejia", "Jahun", "Kafin Hausa", "Kaugama", "Kazaure", "Kiri Kasama", "Kiyawa", "Maigatari", "Malam Madori", "Miga", "Ringim", "Roni", "Sule Tankarkar", "Taura", "Yankwashi"],
-    "Kaduna": ["Birnin Gwari", "Chikun", "Giwa", "Igabi", "Ikara", "Jaba", "Jema'a", "Kachia", "Kaduna North", "Kaduna South", "Kagarko", "Kajuru", "Kaura", "Kauru", "Kubau", "Kudan", "Lere", "Makarfi", "Sabon Gari", "Sanga", "Soba", "Zangon Kataf", "Zaria"],
-    "Kano": ["Ajingi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Bunkure", "Dala", "Dambatta", "Dawakin Kudu", "Dawakin Tofa", "Doguwa", "Fagge", "Gabasawa", "Garko", "Garun Mallam", "Gaya", "Gezawa", "Gwale", "Gwarzo", "Kabo", "Kano Municipal", "Karaye", "Kibiya", "Kiru", "Kumbotso", "Kunchi", "Kura", "Madobi", "Makoda", "Minjibir", "Nasarawa", "Rano", "Rimin Gado", "Rogo", "Shanono", "Sumaila", "Takai", "Tarauni", "Tofa", "Tsanyawa", "Tudun Wada", "Ungogo", "Warawa", "Wudil"],
-    "Katsina": ["Bakori", "Batagarawa", "Batsari", "Baure", "Bindawa", "Charanchi", "Dandume", "Danja", "Dan Musa", "Daura", "Dutsi", "Dutsin Ma", "Faskari", "Funtua", "Ingawa", "Jibia", "Kafur", "Kaita", "Kankara", "Kankia", "Katsina", "Kurfi", "Kusada", "Mai'Adua", "Malumfashi", "Mani", "Mashi", "Matazu", "Musawa", "Rimi", "Sabuwa", "Safana", "Sandamu", "Zango"],
-    "Kebbi": ["Aleiro", "Arewa Dandi", "Argungu", "Augie", "Bagudo", "Birnin Kebbi", "Bunza", "Dandi", "Fakai", "Gwandu", "Jega", "Kalgo", "Koko/Besse", "Maiyama", "Ngaski", "Sakaba", "Shanga", "Suru", "Wasagu/Danko", "Yauri", "Zuru"],
-    "Kogi": ["Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Ibaji", "Idah", "Igalamela Odolu", "Ijumu", "Kabba/Bunu", "Kogi", "Lokoja", "Mopa-Muro", "Ofu", "Ogori/Magongo", "Okehi", "Okene", "Olamaboro", "Omala", "Yagba East", "Yagba West"],
-    "Kwara": ["Asa", "Baruten", "Edu", "Ekiti", "Ifelodun", "Ilorin East", "Ilorin South", "Ilorin West", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke Ero", "Oyun", "Pategi"],
-    "Lagos": ["Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", "Epe", "Eti-Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe", "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"],
-    "Nasarawa": ["Akwanga", "Awe", "Doma", "Karu", "Keana", "Keffi", "Kokona", "Lafia", "Nasarawa", "Nasarawa Egon", "Obi", "Toto", "Wamba"],
-    "Niger": ["Agaie", "Agwara", "Bida", "Borgu", "Bosso", "Chanchaga", "Edati", "Gbako", "Gurara", "Katcha", "Kontagora", "Lapai", "Lavun", "Magama", "Mariga", "Mashegu", "Mokwa", "Moya", "Paikoro", "Rafi", "Rijau", "Shiroro", "Suleja", "Tafa", "Wushishi"],
-    "Ogun": ["Abeokuta North", "Abeokuta South", "Ado-Odo/Ota", "Egbado North", "Egbado South", "Ewekoro", "Ifo", "Ijebu East", "Ijebu North", "Ijebu North East", "Ijebu Ode", "Ikenne", "Imeko Afon", "Ipokia", "Obafemi Owode", "Odeda", "Odogbolu", "Ogun Waterside", "Remo North", "Shagamu"],
-    "Ondo": ["Akoko North-East", "Akoko North-West", "Akoko South-East", "Akoko South-West", "Akure North", "Akure South", "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Irele", "Odigbo", "Okitipupa", "Ondo East", "Ondo West", "Ose", "Owo"],
-    "Osun": ["Aiyedaade", "Aiyedire", "Atakumosa East", "Atakumosa West", "Boluwaduro", "Boripe", "Ede North", "Ede South", "Egbedore", "Ejigbo", "Ife Central", "Ife East", "Ife North", "Ife South", "Ifedayo", "Ifelodun", "Ila", "Ilesa East", "Ilesa West", "Irepodun", "Irewole", "Isokan", "Iwo", "Obokun", "Odo Otin", "Ola Oluwa", "Olorunda", "Oriade", "Orolu"],
-    "Oyo": ["Afijio", "Akinyele", "Atiba", "Atisbo", "Egbeda", "Ibadan North", "Ibadan North-East", "Ibadan North-West", "Ibadan South-East", "Ibadan South-West", "Ibarapa Central", "Ibarapa East", "Ibarapa North", "Ido", "Irepo", "Iseyin", "Itesiwaju", "Iwajowa", "Kajola", "Lagelu", "Ogbomosho North", "Ogbomosho South", "Ogo Oluwa", "Olorunsogo", "Oluyole", "Ona Ara", "Orelope", "Ori Ire", "Oyo East", "Oyo West", "Saki East", "Saki West", "Surulere"],
-    "Plateau": ["Barkin Ladi", "Bassa", "Bokkos", "Jos East", "Jos North", "Jos South", "Kanam", "Kanke", "Langtang North", "Langtang South", "Mangu", "Mikang", "Pankshin", "Qua'an Pan", "Riyom", "Shendam", "Wase"],
-    "Rivers": ["Abua/Odual", "Ahoada East", "Ahoada West", "Akuku Toru", "Andoni", "Asari-Toru", "Bonny", "Degema", "Eleme", "Emuoha", "Etche", "Gokana", "Ikwerre", "Khana", "Obio/Akpor", "Ogba/Egbema/Ndoni", "Ogu/Bolo", "Okrika", "Omuma", "Opobo/Nkoro", "Oyigbo", "Port Harcourt", "Tai"],
-    "Sokoto": ["Binji", "Bodinga", "Dange Shuni", "Gada", "Goronyo", "Gudu", "Gwadabawa", "Illela", "Isa", "Kebbe", "Kware", "Rabah", "Sabon Birni", "Shagari", "Silame", "Sokoto North", "Sokoto South", "Tambuwal", "Tangaza", "Tureta", "Wamako", "Wurno", "Yabo"],
-    "Taraba": ["Ardo Kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo", "Karim Lamido", "Kurmi", "Lau", "Sardauna", "Takum", "Ussa", "Wukari", "Yorro", "Zing"],
-    "Yobe": ["Bade", "Bursari", "Damaturu", "Fika", "Fune", "Geidam", "Gujba", "Gulani", "Jakusko", "Karasuwa", "Machina", "Nangere", "Nguru", "Potiskum", "Tarmuwa", "Yunusari", "Yusufari"],
-    "Zamfara": ["Anka", "Bakura", "Birnin Magaji/Kiyaw", "Bukkuyum", "Bungudu", "Chafe", "Gummi", "Gusau", "Kaura Namoda", "Maradun", "Maru", "Shinkafi", "Talata Mafara", "Zurmi"],
-    "FCT": ["Abaji", "Bwari", "Gwagwalada", "Kuje", "Kwali", "Municipal Area Council"]
+    "Jigawa": ["Auyo", "Babura", "Biriniwa", "Birnin Kudu", "Buji", "Dutse", "Gagarawa", "Garki", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadejia", "Jahun", "Kafin Hausa", "Kaugama", "Kazaure", "Malam Madori", "Miga", "Ringim", "Sule Tankarkar", "Taura", "Yankwashi"],
+    "Kaduna": ["Birnin Gwari", "Chikun", "Giwa", "Ikara", "Jaba", "Jema'a", "Kachia", "Kaduna North", "Kaduna South", "Kagarko", "Kajuru", "Kaura", "Kudan", "Lere", "Makarfi", "Sabon Gari", "Sanga", "Soba", "Zangon Kataf", "Zaria"],
+    "Kano": ["Ajingi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Dala", "Dawakin Kudu", "Dawakin Tofa", "Gabasawa", "Garko", "Garun Mallam", "Gaya", "Gezawa", "Gwarzo", "Kabo", "Kano Municipal", "Karaye", "Kiru", "Kumbotso", "Madobi", "Makoda", "Minjibir", "Nasarawa", "Rogo", "Tarauni", "Tofa", "Tsanyawa", "Tudun Wada", "Ungogo", "Warawa", "Wudil"],
+    "Kogi": ["Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Igalamela-Odolu", "Ijumu", "Kabba/Bunu", "Kogi", "Lokoja", "Mopa-Muro", "Ofu", "Ogori-Magongo", "Okene", "Okehi", "Olamaboro", "Pategi", "Yagba East", "Yagba West"],
+    "Kwara": ["Asa", "Baruten", "Ekiti", "Ifelodun", "Ilorin East", "Ilorin South", "Ilorin West", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke Ero", "Oyun", "Pategi"],
+    "Lagos": ["Agege", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", "Banjoko", "Bariga", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Somolu", "Surulere"],
+    "Nasarawa": ["Akwanga", "Doma", "Karu", "Keana", "Keffi", "Nasarawa", "Nasarawa Eggon", "Obi", "Toto", "Wamba"],
+    "Niger": ["Agaie", "Agwara", "Bida", "Borgu", "Chanchaga", "Edati", "Gbako", "Gurara", "Katcha", "Kontagora", "Lapai", "Lavun", "Mashegu", "Mokwa", "Paikoro", "Rafi", "Rayyan", "Shiroro", "Suleja", "Tafa", "Wushishi"],
+    "Ogun": ["Abeokuta North", "Abeokuta South", "Ado-Odo/Ota", "Egbado North", "Egbado South", "Ewekoro", "Ifo", "Ijebu East", "Ijebu North", "Ijebu Ode", "Obafemi-Owode", "Odeda", "Odogbolu", "Remo North", "Sagamu", "Yewa North", "Yewa South"],
+    "Ondo": ["Akoko North-East", "Akoko North-West", "Akoko South-East", "Akoko South-West", "Akure North", "Akure South", "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Odigbo", "Ondo East", "Ondo West", "Ose", "Owo"],
+    "Osun": ["Aiyedade", "Aiyedire", "Atakunmosa East", "Atakunmosa West", "Boripe", "Ife East", "Ife North", "Ife South", "Ife Central", "Ilesha East", "Ilesha West", "Isokan", "Obokun", "Odo Otin", "Ola Oluwa", "Olorunda", "Osogbo", "Ola Oluwa"],
+    "Oyo": ["Akinyele", "Atiba", "Afijio", "Egbeda", "Ibadan North", "Ibadan North East", "Ibadan South East", "Ibadan South West", "Ibarapa Central", "Ibarapa East", "Ibarapa North", "Ido", "Iseyin", "Itesiwaju", "Ogbomosho North", "Ogbomosho South", "Oyo East", "Oyo West", "Saki East", "Saki West"],
+    "Plateau": ["Bokkos", "Jos East", "Jos North", "Jos South", "Kanke", "Langtang North", "Langtang South", "Mangu", "Pankshin", "Quan Pan", "Riyom", "Shendam", "Wase"],
+    "Rivers": ["Abua/Odual", "Ahoada East", "Ahoada West", "Akuku-Toru", "Andoni", "Asari-Toru", "Bonny", "Degema", "Emohua", "Eleme", "Etche", "Gokana", "Ikwerre", "Obio/Akpor", "Ogba/Egbema/Ndoni", "Ogu/Bolo", "Okrika", "Omuma", "Port Harcourt", "Tai"],
+    "Sokoto": ["Bodinga", "Dange Shuni", "Gada", "Goronyo", "Gudu", "Illela", "Kebbe", "Kware", "Rabah", "Sokoto North", "Sokoto South", "Tambuwal", "Tangaza", "Wamako", "Wurno", "Yabo"],
+    "Taraba": ["Ardo Kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo", "Karim Lamido", "Kona", "Lau", "Sardauna", "Takum", "Ussa", "Wukari"],
+    "Yobe": ["Bade", "Bursari", "Damaturu", "Fika", "Fune", "Geidam", "Gujba", "Jakusko", "Karasuwa", "Nguru", "Potiskum", "Tarmua", "Yunusari"],
+    "Zamfara": ["Anka", "Bakura", "Birnin Magaji", "Bukkuyum", "Gummi", "Gusau", "Maradun", "Shinkafi", "Talata Mafara", "Zumi"]
 };
 
+// Event listener for local government selection
+document.getElementById('stateSelect').addEventListener('change', function () {
+    const state = this.value;
+    const lgas = localGovernments[state] || [];
+    const lgaSelect = document.getElementById('lgaSelect');
 
+    lgaSelect.innerHTML = ''; // Clear previous options
 
-// Admin credentials
-const adminUsername = "admin";
-const adminPassword = "securePassword123";
-
-// Populate local government based on selected state
-function populateLocalGovernment() {
-    const state = document.getElementById('state').value;
-    const localGovernmentSelect = document.getElementById('local-government');
-    localGovernmentSelect.innerHTML = '<option value="">Select your local government</option>';
-    
-    if (state && localGovernments[state]) {
-        localGovernments[state].forEach(lga => {
-            const option = document.createElement('option');
-            option.value = lga;
-            option.text = lga;
-            localGovernmentSelect.appendChild(option);
-        });
-    }
-}
-
-// Product options logic
-function populateProductOptions() {
-    const product = document.getElementById('product').value;
-    const productOptionSelect = document.getElementById('product-option');
-    productOptionSelect.innerHTML = '<option value="">Select Product Option</option>';
-    
-    let options = [];
-    if (product === "rice") {
-        options = ["Local Rice", "Foreign Rice"];
-    } else if (product === "cement") {
-        options = ["Dangote 3X", "Dangote Falcon", "Dangote Block Master","BUA","Mangal"];
-    } else if (product === "spaghetti") {
-        options = ["Local Spaghetti", "Foreign Spaghetti"];
-    } else if (product === "macaroni") {
-        options = ["Local Macaroni", "Foreign Macaroni"];
-    }
-
-    options.forEach(option => {
-        const opt = document.createElement('option');
-        opt.value = option;
-        opt.text = option;
-        productOptionSelect.appendChild(opt);
+    lgas.forEach(lga => {
+        const option = document.createElement('option');
+        option.value = lga;
+        option.textContent = lga;
+        lgaSelect.appendChild(option);
     });
+});
+
+// Display the login form
+function displayLoginForm() {
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('adminPanel').style.display = 'none';
 }
 
-// Handle admin login
-document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const enteredUsername = document.getElementById('adminUsername').value;
-    const enteredPassword = document.getElementById('adminPassword').value;
-
-    if (enteredUsername === adminUsername && enteredPassword === adminPassword) {
-        document.getElementById('adminPanel').style.display = 'block';
-        document.getElementById('loginError').style.display = 'none';
-    } else {
-        document.getElementById('loginError').style.display = 'block';
-    }
-});
-
-// Handle order form submission
-document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Get form data
-    const name = document.getElementById('name').value;
-    const state = document.getElementById('state').value;
-    const localGovernment = document.getElementById('local-government').value;
-    const address = document.getElementById('address').value;
-    const phone = document.getElementById('phone').value;
-    const product = document.getElementById('product').value;
-    const productOption = document.getElementById('product-option').value;
-    const quantity = document.getElementById('quantity').value;
-
-    // Add the order to the admin panel
-    const ordersTableBody = document.querySelector('#ordersTable tbody');
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-        <td>${name}</td>
-        <td>${state}</td>
-        <td>${localGovernment}</td>
-        <td>${address}</td>
-        <td>${phone}</td>
-        <td>${product}</td>
-        <td>${productOption}</td>
-        <td>${quantity}</td>
-    `;
-    ordersTableBody.appendChild(newRow);
-
-    // Send an email (this will open the user's email client)
-    const emailBody = `Name: ${name}%0AState: ${state}%0ALGA: ${localGovernment}%0AAddress: ${address}%0APhone: ${phone}%0AProduct: ${product}%0AProduct Option: ${productOption}%0AQuantity: ${quantity}`;
-    window.location.href = `mailto:jibiamultiresources@gmail.com?subject=New Order&body=${emailBody}`;
-});
+// Initialize the login form
+displayLoginForm();
